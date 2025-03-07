@@ -1,0 +1,28 @@
+name: Run detekt
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  detekt_check:
+    runs-on: ubuntu-24.04
+    env:
+      GRADLE_OPTS: -Dorg.gradle.daemon=false
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+      - name: Gradle build
+        uses: burrunan/gradle-cache-action@v2
+        with:
+          arguments: detektAll
+          properties: |
+            org.gradle.caching=true
+          gradle-version: wrapper

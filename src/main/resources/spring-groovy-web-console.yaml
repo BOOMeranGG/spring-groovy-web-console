@@ -1,0 +1,7 @@
+groovy-web-console:
+  enabled: true
+  examples:
+    enabled: true
+  api:
+    web-console-page:
+      prefix: /console

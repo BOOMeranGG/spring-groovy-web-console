@@ -1,0 +1,88 @@
+html, body {
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+.root {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 35px 1fr 30px 250px 1fr;
+}
+
+.editor {
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 50px 100px 1fr 250px;
+    grid-template-rows: 1fr;
+    gap: 5px;
+    padding: 3px;
+
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+.console-icon {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.execute-button {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.execute-button-text {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 550;
+}
+
+.execute-button-icon {
+}
+
+.script-selector-container {
+    align-self: center;
+    display: flex;
+    gap: 15px;
+    margin-right: 25px;
+}
+
+.script-selector-text {
+    white-space: nowrap;
+}
+
+.script-selector {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.result-text {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.response-viewer {
+
+}

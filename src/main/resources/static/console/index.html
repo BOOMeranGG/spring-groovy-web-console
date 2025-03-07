@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Groovy Web Console</title>
+    <meta name="description" content="Spring Groovy Web Console">
+    <base href="/console/">
+    <link rel="icon" type="image/png" href="images/console_icon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="root">
+    <div class="header">
+        <img src="images/console_icon.svg" class="console-icon" alt="console icon"/>
+
+        <button id="execute-button" class="execute-button" type="button" onclick="sendScript()">
+            <img src="images/execute_button.svg" alt="execute button" class="execute-button-icon"/>
+            <span class="execute-button-text">Execute</span>
+        </button>
+
+        <div class="empty-div">
+
+        </div>
+
+        <div class="script-selector-container">
+            <span class="script-selector-text">Scripts: </span>
+            <select id="script-selector" class="script-selector">
+                <option value="" selected="selected">---</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="editor" class="editor"></div>
+
+    <span class="result-text">
+            Result:
+    </span>
+
+    <div id="response-viewer" class="response-viewer"></div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+<script src="js/monaco_groovy.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>
