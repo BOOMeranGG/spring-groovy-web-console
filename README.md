@@ -9,10 +9,9 @@ It enables you to run Groovy scripts directly from your web browser, making it a
 
 ![img.png](resources/console.png)
 
-
 ## Features
 - **GroovyScriptExecutionInterceptor** – hook into script execution lifecycle
-- **GroovyScriptStorage** - plug in your own storage mechanism (e.g., DB, in-memory)
+- **GroovyScriptStorage** - plug in your own script storage mechanism (e.g., DB, in-memory)
 - **CompilerConfiguration** - customize the Groovy compiler settings
 - **Spring Boot Security** (optional) - integrates seamlessly if security is enabled
 
