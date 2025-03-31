@@ -25,18 +25,18 @@ internal class GroovyScriptExecutorService(
     }
 
     fun execute(groovyScript: String): ScriptExecutionResultResponse {
-        val scriptUuid = UUID.randomUUID()
-        interceptorsExecutor.callOnPreExecute(scriptUuid, groovyScript)
+        val executionUuid = UUID.randomUUID()
+        interceptorsExecutor.callOnPreExecute(executionUuid, groovyScript)
 
         return try {
             val out = ByteArrayOutputStream()
             val groovyShell = createGroovyShell(out)
             val result = groovyShell.evaluate(groovyScript)
 
-            interceptorsExecutor.callOnPostExecute(scriptUuid, groovyScript)
+            interceptorsExecutor.callOnPostExecute(executionUuid, groovyScript)
             ScriptExecutionResultResponse(result, out.toString())
         } catch (ex: Exception) {
-            interceptorsExecutor.callOnFailed(scriptUuid, groovyScript, ex)
+            interceptorsExecutor.callOnFailed(executionUuid, groovyScript, ex)
             ScriptExecutionResultResponse(ex)
         }
     }

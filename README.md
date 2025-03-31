@@ -95,11 +95,11 @@ groovy-web-console:
 ```kotlin
 interface GroovyScriptExecutionInterceptor {
 
-    fun onPreExecute(scriptId: String, script: String)
+    fun onPreExecute(executionId: String, script: String)
 
-    fun onPostExecute(scriptId: String, script: String)
+    fun onPostExecute(executionId: String, script: String)
 
-    fun onFailed(scriptId: String, script: String, ex: Exception)
+    fun onFailed(executionId: String, script: String, ex: Exception)
 }
 ```
 - And also implement **GroovyScriptStorage** to store and retrieve scripts (multiple storages can be registered):
