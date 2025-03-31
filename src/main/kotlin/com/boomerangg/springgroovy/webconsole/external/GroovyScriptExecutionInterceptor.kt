@@ -2,9 +2,9 @@ package com.boomerangg.springgroovy.webconsole.external
 
 interface GroovyScriptExecutionInterceptor {
 
-    fun onPreExecute(scriptUuid: String, script: String)
+    fun onPreExecute(scriptId: String, script: String)
 
-    fun onPostExecute(scriptUuid: String, script: String)
+    fun onPostExecute(scriptId: String, script: String)
 
-    fun onFailed(scriptUuid: String, script: String, ex: Exception)
+    fun onFailed(scriptId: String, script: String, ex: Exception)
 }
