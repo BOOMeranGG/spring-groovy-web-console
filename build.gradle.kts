@@ -53,6 +53,17 @@ tasks.register<Detekt>("detektAll") {
     )
 }
 
+configurations
+    .matching { it.name.startsWith("detekt") }
+    .all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion("2.0.21")
+                because("detekt 1.23.8 compiled with Kotlin 2.0.21")
+            }
+        }
+    }
+
 publishing {
     publications {
         register<MavenPublication>("gpr") {
