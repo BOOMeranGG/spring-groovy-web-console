@@ -54,16 +54,6 @@ tasks.register<Detekt>("detektAll") {
 }
 
 publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/BOOMeranGG/spring-groovy-web-console")
-            credentials {
-                username = project.findProperty("gpr.user") as String?
-                password = project.findProperty("gpr.key") as String?
-            }
-        }
-    }
     publications {
         register<MavenPublication>("gpr") {
             from(components["java"])
