@@ -6,7 +6,7 @@ val logbackVersion: String by project
 
 plugins {
     kotlin("jvm") version "2.0.21"
-    id("org.springframework.boot") version "3.4.3" apply false
+    id("org.springframework.boot") version "3.4.4" apply false
     id("io.spring.dependency-management") version "1.1.7"
     id("maven-publish")
     id("io.gitlab.arturbosch.detekt") version "1.23.8"
