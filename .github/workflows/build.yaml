@@ -18,7 +18,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - name: Gradle build
-        uses: burrunan/gradle-cache-action@v2
+        uses: burrunan/gradle-cache-action@v3
         with:
           arguments: |
             build
