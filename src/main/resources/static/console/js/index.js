@@ -50,6 +50,7 @@ function sendScript() {
     
     if (!script.trim()) {
         showNotification('Please enter a script to execute', 'warning');
+        updateStatus('Ready');
         return;
     }
 
@@ -60,6 +61,7 @@ function sendScript() {
     executeButton.disabled = true;
     executeButton.classList.add('loading');
     document.querySelector('main').appendChild(loadingOverlay);
+    updateStatus('Executing...', 'executing');
 
     fetch('/console/groovy', {
         method: 'POST',
@@ -77,6 +79,7 @@ function sendScript() {
     .then(data => {
         responseViewer.setValue(JSON.stringify(data, null, 2));
         showNotification('Script executed successfully', 'success');
+        updateStatus('Success', 'success');
     })
     .catch(error => {
         console.error('Error executing script:', error);
@@ -85,6 +88,7 @@ function sendScript() {
             message: error.message
         }, null, 2));
         showNotification('Failed to execute script', 'error');
+        updateStatus('Error', 'error');
     })
     .finally(() => {
         // Hide loading state
@@ -105,12 +109,22 @@ function createLoadingOverlay() {
 
 function clearResults() {
     responseViewer.setValue('{\n  "message": "Execute a script to see results here"\n}');
+    updateStatus('Ready');
     showNotification('Results cleared', 'info');
 }
 
 function clearEditor() {
     editor.setValue('');
+    updateStatus('Ready');
     showNotification('Editor cleared', 'info');
+}
+
+function updateStatus(message, type = 'default') {
+    const statusIndicator = document.getElementById('status-indicator');
+    if (statusIndicator) {
+        statusIndicator.textContent = message;
+        statusIndicator.className = 'status-indicator' + (type !== 'default' ? ` ${type}` : '');
+    }
 }
 
 function showNotification(message, type = 'info') {

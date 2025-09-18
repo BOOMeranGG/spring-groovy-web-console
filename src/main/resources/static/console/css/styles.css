@@ -187,6 +187,7 @@ html, body {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 8px 16px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -197,6 +198,31 @@ html, body {
     font-weight: 600;
     color: #ffffff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.status-indicator {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.status-indicator.executing {
+    background: linear-gradient(135deg, #ffa726 0%, #ff9800 100%);
+    color: white;
+}
+
+.status-indicator.success {
+    background: linear-gradient(135deg, #00d4aa 0%, #00a085 100%);
+    color: white;
+}
+
+.status-indicator.error {
+    background: linear-gradient(135deg, #ff6b6b 0%, #e74c3c 100%);
+    color: white;
 }
 
 .response-viewer {
