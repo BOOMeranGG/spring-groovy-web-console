@@ -47,20 +47,30 @@ function setUpEditors() {
         });
 
         editor = monaco.editor.create(document.getElementById("editor"), {
-            value: "println 'Hello, World'",
+            value: "// Welcome to the Groovy Web Console!\n// You have access to the Spring application context.\n// Try running: println 'Hello, Groovy!'\n\nprintln 'Hello, World!'",
             language: "groovy",
             theme: "vs-dark",
             automaticLayout: true,
-            fontSize: 14
+            fontSize: 14,
+            lineNumbers: 'on',
+            minimap: { enabled: false },
+            scrollBeyondLastLine: false,
+            wordWrap: 'on',
+            tabSize: 2,
+            insertSpaces: true
         });
 
         responseViewer = monaco.editor.create(document.getElementById('response-viewer'), {
-            value: "{}",
+            value: "{\n  \"message\": \"Execute a script to see results here\"\n}",
             language: 'json',
             theme: 'vs-dark',
             readOnly: true,
             automaticLayout: true,
-            fontSize: 14
+            fontSize: 14,
+            lineNumbers: 'on',
+            minimap: { enabled: false },
+            scrollBeyondLastLine: false,
+            wordWrap: 'on'
         });
     });
 }
