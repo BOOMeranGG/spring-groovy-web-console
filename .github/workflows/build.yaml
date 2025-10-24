@@ -27,7 +27,7 @@ jobs:
             org.gradle.caching=true
           gradle-version: wrapper
       - name: Upload gradle reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: gradle-reports
           path: '**/build/reports/'
