@@ -5,7 +5,7 @@ val groovyVersion: String by project
 val logbackVersion: String by project
 
 plugins {
-    kotlin("jvm") version "2.1.20"
+    kotlin("jvm") version "2.2.21"
     id("org.springframework.boot") version "3.5.7" apply false
     id("io.spring.dependency-management") version "1.1.7"
     id("maven-publish")
